@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/css/index.css}" href="css/test.css"
+          rel="stylesheet" type="text/css" media="screen"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <title>NewBizzz School</title>
+</head>
+
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" th:href="@{/}">ГОЛОВНА</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/course/all}">КУРСИ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/mentors}">МЕНТОРИ</a>
+                    </li>
+
+                    </li>
+
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item" sec:authorize="!isAuthenticated()">
+                        <a class="nav-link" th:href="@{/registration}">Зареєструватись</a>
+                    </li>
+                    <li class="nav-item" sec:authorize="!isAuthenticated()">
+                        <a class="nav-link" th:href="@{/login}">Увійти</a>
+                    <li class="nav-item mr-auto" sec:authorize="isAuthenticated()">
+                        <a class="nav-link" th:href="@{/user}">Користувач</a>
+                    </li>
+                    <li class="nav-item mr-auto" sec:authorize="hasRole('ADMIN')">
+                        <a class="nav-link" th:href="@{/admin}">Адмін</a>
+                    </li>
+                    <li class="nav-item mr-auto" sec:authorize="isAuthenticated()">
+                        <a class="nav-link" th:href="@{/logout}">Вийти</a>
+                </ul>
+                <a class="navbar-brand" th:href="@{/}">
+                    <img th:src="@{/img/nb_logo_1000.svg}" alt="" width="120" height="120">
+                </a>
+            </div>
+        </div>
+    </nav>
+</header>
+<main>
+    <section class="howToEarn">
+        <div class="textHowToEarn">
+            <h1>Як заробляти на контенті?</h1>
+            <h2>Онлайн-курс від Prentkovych agency. <br> Практика і нічого зайвого!</h2>
+            <h2>30 днів інтенсивної роботи та <b>отримання перших коштів вже протягом навчання!</b>
+            </h2>
+            <h2>Старт потоку: <b>старт 07.12</b></h2>
+            <button type="button"><a th:href="@{/course/1}">Реєстрація</a></button>
+        </div>
+        <img src="img/content.png" class="img-fluid" alt="Не знайдено">
+    </section>
+    <section class="newBizSchool">
+        <img src="img/newbiz.png" class="img-fluid" alt="Не знайдено">
+        <div>
+            <h2>New Biz School</h2>
+            <h3>освітня платформа для людей, що працюють з лайками та пікселями. Кожної секунди хтось створює своє
+                онлайн-портфоліо або запускає бізнес в інстаграм. Maybe you're next. Ніяких загальних матеріалів.
+                Лише наш особистий підхід до кожної задачі.</h3>
+        </div>
+    </section>
+    <section class="request">
+        <div class="boxRequest">
+            <h2>New Biz – це перші запити про співпрацю</h2>
+            <h3>Бартер, огляди, сторіз. Вже декілька десятків студентів отримали свої перші запити на співпрацю
+                завдяки нашому курсу та підтримці. Ми навчимо, як правильно оцінити свою роботу та як продати себе
+            </h3>
+        </div>
+        <div class="boxRequest">
+            <h2>New Biz – це перші проекти</h2>
+            <h3>Мрієш фотографувати контент для інших профілів? Ми навчимо структурувати, знаходити свої фішки,
+                комунікувати з блогерами та створювати кайфовий контент</h3>
+        </div>
+    </section>
+    <section class="program">
+        <div class="programDesc">
+            <h1>ПРОГРАМА КУРСУ</h1>
+            <h2 th:text="${course.getBonuses()}"></h2>
+        </div>
+        <div class="module">
+            <div class="programOfModule" >
+                <div th:each="lesson : ${course.getLessonList()}">
+                    <h2 th:text="${lesson.getTitle()}"></h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="mentors">
+        <div class="programDesc">
+            <h1>ЗНАЙОМСЯ, ТВОЇ МЕНТОРИ</h1>
+            <h2>Ми будемо чекати на тебе в чаті телеграм з питаннями, в особистому кабінеті з лекціями. Хвалити,
+                сварити, репостити, підтримувати.</h2>
+        </div>
+        <div class="mentorsDesc">
+            <div class="mentor" th:each="mentor : ${course.getMentorList()}">
+                <div class="photoMentor">
+                    <img alt="Photo of mentor" th:src="@{${mentor.getPathToPhoto()}}"/>
+                </div>
+                <h3 th:text="${mentor.firstName} + ' ' +${mentor.lastName}"></h3>
+                <h4 th:text="${mentor.position}"></h4>
+            </div>
+        </div>
+    </section>
+    <section class="packets">
+        <div class="programDesc">
+            <h2 class="marg" th:text="${course.getDescription()}"></h2>
+            <h1>ВЗЯТИ УЧАСТЬ</h1>
+            <h1 th:text="'Ціна: ' + ${course.getPrice()}"></h1>
+            <div class="buttons" th:if="${course.getPacketList().size() > 0}">
+                <button type="button"><a th:href="@{/course/packet/{id}(id = ${course.getId()})}">Придбати курс</a>
+                </button>
+            </div>
+            <div class="buttons" th:if="${course.getPacketList().size() == 0}">
+                <form method="post" th:action="@{/course/buy}">
+                    <input type="hidden" name="id" th:value="${course.getId}" />
+                    <button type="submit">Придбати курс</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <section class="slider">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                        class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img th:src="@{img/review1.png}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img th:src="@{img/review2.png}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img th:src="@{img/review3.png}" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+    <section class="imgFlowers">
+        <img th:src="@{img/flower1.jpeg}" alt="">
+        <img th:src="@{img/flowe2.jpeg}" alt="">
+    </section>
+    <section class="aestetic">
+        <div class="boxRequest">
+            <h2>7500 реклам</h2>
+            <h3>Таня поділиться досвідом, як продавати в інстаграм. Як правильно подавати продукт і себе </h3>
+        </div>
+        <img src="img/box (4).png" alt="">
+        <div class="boxRequest">
+            <h2>Зберігати</h2>
+            <h3>Іра навчить, як почати писати, щоб цим захотіли поділитися. Одразу прикріпили статистику. Цифри
+                говорять про букви.</h3>
+        </div>
+        <img src="img/box (1).png" alt="">
+        <img src="img/box (2).png" alt="">
+        <div class="boxRequest">
+            <h2>Аналізувати</h2>
+            <h3>Галя навчить аналізувати та планувати свій контент та просування. Як запам'ятатися іншим. Той самий
+                "особистий бренд", про які всі говорять.</h3>
+        </div>
+        <img src="img/box (3).png" alt="">
+        <div class="boxRequest">
+            <h2>Естетично</h2>
+            <h3>Аня розкаже як створювати оригінальний і кайфовий віжуал для всіх типів контенту. Що брати, як
+                знімати й обробляти.</h3>
+        </div>
+    </section>
+    <section class="faq">
+        <h1>QA</h1>
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                        Скільки часу потрібно буде витрачати на навчання?
+                    </button>
+                </h2>
+                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                     data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">В середньому 1-2 години в день на перегляд уроків і виконання
+                        домашніх завдань.</div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                        Як довго збережеться доступ до матеріалів після курсу?
+                    </button>
+                </h2>
+                <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+                     data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">6 місяці з моменту старту курсу.</div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseThree" aria-expanded="false"
+                            aria-controls="flush-collapseThree">
+                        Які гарантії ми даємo?
+                    </button>
+                </h2>
+                <div id="flush-collapseThree" class="accordion-collapse collapse"
+                     aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">З нашого боку ми дамо все необхідне, щоб ви досягли мети. Гарантій
+                        ми не даємо, але якщо ви будете дотримуватися всіх рекомендацій - результат обов'язково
+                        буде.</div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseThree" aria-expanded="false"
+                            aria-controls="flush-collapseThree">
+                        Чи можна повернути кошти в разі, якщо курс не підійде?
+                    </button>
+                </h2>
+                <div id="flush-collapseThree" class="accordion-collapse collapse"
+                     aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">Якщо Вам не підійшов формат курсу, ми повернемо гроші після 3 уроку.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<!-- Site footer -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-sm-6 col-xs-12 emaill">
+                <p>newbizzz@gmail.com </p>
+                <p>+380735674534</p>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <ul class="social-icons">
+                    <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                    <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

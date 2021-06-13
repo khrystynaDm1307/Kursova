@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link th:href="@{/css/index.css}" href="css/test.css"
+        rel="stylesheet" type="text/css" media="screen"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link th:href="@{/css/packets.css}" href="../../static/css/packets.css"
+        rel="stylesheet" type="text/css" media="screen"/>
+  <title>Пакети</title>
+</head>
+
+<body>
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" th:href="@{/}">ГОЛОВНА</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/course/all}">КУРСИ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/mentors}">МЕНТОРИ</a>
+          </li>
+
+          </li>
+
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item" sec:authorize="!isAuthenticated()">
+            <a class="nav-link" th:href="@{/registration}">Зареєструватись</a>
+          </li>
+          <li class="nav-item" sec:authorize="!isAuthenticated()">
+            <a class="nav-link" th:href="@{/login}">Увійти</a>
+          <li class="nav-item mr-auto" sec:authorize="isAuthenticated()">
+            <a class="nav-link" th:href="@{/user}">Користувач</a>
+          </li>
+          <li class="nav-item mr-auto" sec:authorize="hasRole('ADMIN')">
+            <a class="nav-link" th:href="@{/admin}">Адмін</a>
+          </li>
+          <li class="nav-item mr-auto" sec:authorize="isAuthenticated()">
+            <a class="nav-link" th:href="@{/logout}">Вийти</a>
+        </ul>
+        <a class="navbar-brand" th:href="@{/}">
+          <img th:src="@{/img/nb_logo_1000.svg}" alt="" width="120" height="120">
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+<main>
+  <section class="packets">
+    <div class="programDesc">
+      <h2 class="marg" th:text="${course.getDescription()}"></h2>
+      <h1>ПАКЕТИ КУРСУ</h1>
+    </div>
+  </section>
+  <div class="mentorsMentors">
+    <div class="card" style="width: 25rem;" th:each="packet : ${packetList}">
+      <img th:src="@{${packet.getPathToImage()}}" class="card-img-top" th:alt="${packet.getDescription}">
+      <div class="card-body">
+        <h5 class="card-title" th:text="${packet.getTitle()}"></h5>
+        <div th:utext="${packet.getDescription()}">
+
+        </div>
+        <div class="programDesc">
+          <h1 th:text="${packet.getPriceWithDiscount()} + ' грн'"> <span th:text="${packet.getPrice()} + ' грн'"></span></h1>
+        </div>
+        <form method="post" th:action="@{/course/buy}">
+          <input type="hidden" name="id" th:value="${packet.getCourse().getId()}" />
+          <button class="btn btn-warning">Придбати</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-sm-6 col-xs-12 emaill">
+        <p>newbizzz@gmail.com </p>
+        <p>+380735674534</p>
+      </div>
+
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <ul class="social-icons">
+          <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+          <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+          <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+          <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

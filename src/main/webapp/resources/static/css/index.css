@@ -1,0 +1,653 @@
+@font-face {
+    font-family: 'Monserat Bold';
+    src: url(fonts/Montserrat-Bold.ttf);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat';
+}
+
+.nav-link {
+    font-size: 16px;
+    color: black !important;
+    font-family: 'Montserrat' !important;
+    font-weight: 600;
+    margin-right: 30px;
+}
+
+.emaill {
+    display: flex;
+    justify-content: space-around;
+}
+
+.howToEarn {
+    height: 900px;
+    display: flex;
+    justify-content: space-around;
+    padding: 100px;
+    align-items: center;
+
+}
+
+.howToEarn div {
+    height: 500px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 30px;
+}
+
+.howToEarn h1 {
+    font-weight: 700;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    font-family: 'Monserat Bold';
+
+}
+
+.howToEarn h2 {
+    font-weight: 300;
+    font-size: 1.3rem;
+    letter-spacing: 0.8px;
+    font-family: 'Montserrat' !important;
+    font-size: 16px;
+    line-height: 23px;
+}
+
+.howToEarn img {
+    width: 45%;
+    margin-left: 30px;
+    height: 500px;
+}
+
+.howToEarn button {
+    width: 200px;
+    height: 70px;
+    background-color: rgb(194, 192, 192);
+    border-radius: 40px;
+    border: none;
+    font-family: 'Monserat Bold';
+    font-size: 16px;
+}
+
+.newBizSchool {
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    padding: 100px;
+    align-items: center;
+    background-color: rgb(233, 232, 232);
+}
+
+.newBizSchool div {
+    width: 400px;
+    margin-left: 50px;
+}
+
+.newBizSchool img {
+    width: 45%;
+}
+
+.newBizSchool h3 {
+    font-weight: 300;
+    font-size: 1.3rem;
+    letter-spacing: 0.8px;
+    font-family: 'Montserrat' !important;
+    font-size: 16px;
+    line-height: 23px;
+}
+
+.request {
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+    align-items: center;
+}
+
+.boxRequest {
+    width: 550px;
+    min-height: 200px;
+    background-color: rgb(233, 232, 232);
+    display: flex;
+    flex-direction: column;
+    margin-right: 30px;
+    padding: 30px 40px;
+}
+
+.boxRequest h2 {
+    font-size: 20px;
+}
+
+.boxRequest h3 {
+    font-weight: 300;
+    letter-spacing: 0.8px;
+    font-family: 'Montserrat' !important;
+    font-size: 14px;
+    line-height: 23px;
+}
+
+.program {
+    width: 100%;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.programDesc {
+    width: 700px;
+    text-align: center;
+}
+
+.programDesc h1 {
+    font-weight: 700;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    font-family: 'Monserat Bold';
+
+}
+
+.programDesc h2 {
+    font-weight: 300;
+    letter-spacing: 0.8px;
+    font-family: 'Montserrat' !important;
+    font-size: 16px;
+    line-height: 23px;
+    padding: 0 50px;
+}
+
+.module {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.nameOfModule {
+    width: 400px;
+}
+
+.programOfModule {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.nameOfModule h4 {
+    font-weight: bold;
+}
+
+.programOfModule h2 {
+    font-weight: 300;
+    font-size: 1.3rem;
+    letter-spacing: 0.8px;
+    font-family: 'Montserrat' !important;
+    font-size: 18px;
+    line-height: 23px;
+}
+
+.programOfModule h3 {
+    font-size: 22px;
+    font-style: italic;
+}
+
+.mentors {
+    width: 100%;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.mentorsDesc {
+    width: 950px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.photoMentor {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.mentor {
+    width: 200px;
+    text-align: center;
+}
+
+.mentor h3 {
+    font-size: 20px;
+    letter-spacing: 0.8px;
+    font-family: 'Monserat Bold' !important;
+    font-size: 16px;
+    height: 30px;
+    margin-top: 20px;
+}
+
+.mentor h4 {
+    font-size: 13px;
+    color: rgb(80, 80, 80);
+    height: 30px;
+    letter-spacing: 0.8;
+    font-family: 'Montserrat';
+    background-position: center;
+}
+
+.tanya {
+    background-image: url(img/tanya.png);
+}
+
+.ira {
+    background-image: url(img/ira.png);
+}
+
+.pr {
+    background-image: url(img/pr.png);
+}
+
+.galua {
+    background-image: url(img/galya.png);
+}
+
+nav {
+    z-index: 100000000 !important;
+}
+
+.packets {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.marg {
+    margin-bottom: 50px;
+}
+
+.buttons button:nth-of-type(1) {
+    width: 200px;
+    height: 70px;
+    background-color: rgb(194, 192, 192);
+    border-radius: 40px;
+    border: none;
+    font-family: 'Monserat Bold';
+    font-size: 16px;
+    margin: 50px 0px 50px 0;
+}
+
+button a {
+    text-decoration: none;
+    color: black;
+}
+
+.buttons button:nth-of-type(2) {
+    width: 300px;
+    height: 70px;
+    background-color: rgb(230, 230, 230);
+    border-radius: 40px;
+    border: none;
+    font-family: 'Monserat Bold';
+    font-size: 16px;
+    border: 1px solid rgb(119, 119, 119);
+    margin: 50px 0px 20px 0;
+}
+
+.slider {
+    margin: 30px auto;
+    height: 600px !important;
+    max-width: 900px !important;
+}
+
+.w-100 {
+    height: 600px !important;
+    width: 900px !important;
+}
+
+.imgFlowers {
+    width: 100%;
+    height: 900px;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.imgFlowers img {
+    margin: 0px 20px 30px 20px;
+    width: 50%;
+}
+
+nav {
+    /*position: fixed!important;*/
+    width: 100%;
+}
+
+.aestetic {
+    margin: 0 auto;
+    width: 100%;
+    min-height: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: rgb(221, 220, 220);
+    padding: 50px;
+    margin-bottom: 50px;
+}
+
+.aestetic img {
+    width: 250px;
+    height: 250px;
+    margin: 0;
+}
+
+.aestetic div {
+    width: 270px;
+    height: 250px;
+    margin: 0;
+    background-color: white;
+    font-size: 12px;
+}
+
+.faq {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+
+}
+
+.faq h1 {
+    font-weight: 700;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    font-family: 'Monserat Bold';
+}
+
+.lined {
+    text-decoration: line-through;
+    color: gray;
+}
+
+footer {
+    width: 100%;
+    height: 120px;
+    margin-top: 90px;
+    background-color: rgb(14, 14, 14);
+}
+
+.site-footer {
+    background-color: #26272b;
+    padding: 45px 0 20px;
+    font-size: 15px;
+    line-height: 24px;
+    color: #737373;
+}
+
+.site-footer a {
+    color: #737373;
+}
+
+.footer-links a {
+    color: #737373
+}
+
+.footer-links a:active, .footer-links a:focus, .footer-links a:hover {
+    color: #3366cc;
+    text-decoration: none;
+}
+
+.footer-links.inline li {
+    display: inline-block
+}
+
+.site-footer .social-icons {
+    text-align: right
+}
+
+.site-footer .social-icons a {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 6px;
+    margin-right: 0;
+    border-radius: 100%;
+    background-color: #33353d
+}
+
+.copyright-text {
+    margin: 0
+}
+
+
+@media (max-width: 1100px) {
+    .site-footer [class^=col-] {
+        margin-bottom: 30px
+    }
+
+    .howToEarn {
+        height: 700px;
+    }
+
+    .howToEarn h1 {
+        font-size: 2rem;
+    }
+
+    .howToEarn h2 {
+        font-size: 16px;
+    }
+
+    .howToEarn div {
+        height: 400px;
+    }
+
+    .howToEarn img {
+        height: 400px;
+    }
+
+    .newBizSchool {
+        padding: 50px;
+        height: 600px;
+    }
+
+    .mentorsDesc {
+        width: 95%;
+        flex-wrap: wrap;
+        min-height: 500px;
+    }
+
+    .imgFlowers img {
+        height: 500px;
+    }
+}
+
+@media (max-width: 700px) {
+    .request {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .boxRequest {
+        margin: 10px;
+        min-width: 95%
+    }
+
+    .imgFlowers {
+        height: 1000px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+    }
+
+    .imgFlowers img {
+        width: 80%;
+        height: 400px;
+    }
+
+    .aestetic {
+        padding: 10px;
+    }
+
+}
+
+@media (max-width: 767px) {
+    .site-footer {
+        padding-bottom: 0
+    }
+
+    .site-footer .copyright-text, .site-footer .social-icons {
+        text-align: center
+    }
+}
+
+.social-icons {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none
+}
+
+.social-icons li {
+    display: inline-block;
+    margin-bottom: 4px
+}
+
+.social-icons li.title {
+    margin-right: 15px;
+    text-transform: uppercase;
+    color: #96a2b2;
+    font-weight: 700;
+    font-size: 13px
+}
+
+.social-icons a {
+    background-color: #eceeef;
+    color: #818a91;
+    font-size: 16px;
+    display: inline-block;
+    line-height: 44px;
+    width: 44px;
+    height: 44px;
+    text-align: center;
+    margin-right: 8px;
+    border-radius: 100%;
+    -webkit-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    transition: all .2s linear
+}
+
+.social-icons a:active, .social-icons a:focus, .social-icons a:hover {
+    color: #fff;
+    background-color: #29aafe
+}
+
+.social-icons.size-sm a {
+    line-height: 34px;
+    height: 34px;
+    width: 34px;
+    font-size: 14px
+}
+
+.social-icons a.facebook:hover {
+    background-color: #3b5998
+}
+
+.social-icons a.twitter:hover {
+    background-color: #00aced
+}
+
+.social-icons a.linkedin:hover {
+    background-color: #007bb6
+}
+
+.social-icons a.dribbble:hover {
+    background-color: #ea4c89
+}
+
+@media (max-width: 767px) {
+    .social-icons li.title {
+        display: block;
+        margin-right: 0;
+        font-weight: 600
+    }
+}
+
+@media (max-width: 660px) {
+    .howToEarn {
+        min-height: 800px;
+        flex-direction: column;
+        padding-top: 50px;
+        justify-content: center;
+    }
+
+    .textHowToEarn {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .howToEarn div {
+        height: 300px;
+        width: 100%;
+        justify-content: center;
+        margin-right: 0px;
+        padding: 20px;
+
+    }
+
+    .howToEarn h1 {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .howToEarn h2 {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .howToEarn img {
+        width: 80%;
+        margin-left: 0px;
+
+    }
+
+    .howToEarn button {
+        width: 100px;
+        height: 40px;
+        font-size: 10px;
+    }
+}
+
+.lesson-link {
+    color: black;
+    text-decoration: none; /* no underline */
+}
+
+
+.delete {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    /*optional*/
+    font-family: arial, sans-serif;
+    /*input has OS specific font-family*/
+    color: #069;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.right {
+    float:right
+}
+
+.create-lesson {
+    margin-top:30px;
+}
